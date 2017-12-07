@@ -8,8 +8,13 @@
 // Mouse status
 function mouseStatus(state){
   mouseOver = state;
-  if(mouseOver){
+  
+  if(mouseOver && !heartsRunning){
+    heartsRunning = true;
     spawnHearts();
+  }
+  if(!mouseOver){
+    heartsRunning = false;
   }
 }
 
@@ -20,11 +25,18 @@ heartObject.src = "img/heart.png";
 
 var activeHearts = []; // To prevent duplicated IDs
 
+var heartsRunning = false;
+
 function spawnHearts(){
+  
   // Spawn heart from Donate button
   setTimeout(function(){
     new heart();
+    if(heartsRunning){
+      spawnHearts();
+    }
     }, 200);
+  
 }
 
 
@@ -38,12 +50,13 @@ function heart(){
   var thisRotFlip = false; // Angle to roate
   thisHeart.id = thisID;
   thisHeart.style.opacity = 1;
-  thisHeart.style.top = "14em";
+  thisHeart.style.top = "-14em";
 
   thisHeart.style.right = Math.floor(Math.random()*13)+1 + "em";
   thisHeart.classList.add("heart");
   document.getElementById("header_wrap").innerHTML += thisHeart.outerHTML;
-
+  document.getElementById(thisID).style.fill = "red";
+  
   heartLoop();
   
   function heartLoop(){
@@ -52,6 +65,7 @@ function heart(){
     document.getElementById(thisID).style.transform = "rotate(" + thisRot + "deg)";
     document.getElementById(thisID).style.opacity -= 0.005
     document.getElementById(thisID).style.top = thisTop + "em";
+      
     thisTop -= 0.05;
     
     var rotationSpeed = 2;

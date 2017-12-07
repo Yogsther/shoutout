@@ -31,23 +31,32 @@ body{
   margin: 0 auto;
   overflow: hidden;
   display: block;
+  box-shadow: 0px 5px 3px rgba(0,0,0,0.1)
  
 }
 
-#donate_button{
+#header_wrap{
+  height: 5em;
+  width: 100%;
+  position: relative;
+  margin: 0 auto;
+  display: block;
+}
 
-  width: 35%;
+
+#donate_button{
+  width: 35.5%;
   height: 100%;
   background: white;
   height: 100%;
-  border-radius: 0.4em;
+  /*border-radius: 0.4em;*/
   right: 0px;
   top: 0px;
   position: absolute;
   color: #ee304b;
   text-decoration: none;
   text-align: center;
-  line-height: 4.4em;
+  line-height: 4.8em;
   font-weight: 800; /* Make text bold */
 }
 
@@ -58,11 +67,10 @@ body{
   display: inline-block;
   width: 21.6%;
   text-align: center;
-  line-height: 4.4em;
+  line-height: 4.8em;
   transition: background 0.2s, top 1s;
   position: relative;
   margin: -0.1em;
-  
 }
 
 .header_button:hover{
@@ -70,11 +78,18 @@ body{
 }
 
 #display_stats{
+  background: #c52037;
   display: block;
-  top: -13em;
+  top: -14.6em;
   width: 90%;
+  height: 2em;
+  color: white;
+  line-height: 2.7em;
+  padding: 0.4em;
+  border-radius: 0.4em;
   margin: 0 auto;
   position: relative;
+  z-index: -3;
 }
 
 #donationer_text{
@@ -88,18 +103,9 @@ body{
 
 /* Donationskort */
 
-.donation_card{
-  margin: 0 auto;
-  position: relative;
-  width: 100%;
-  margin: 0 auto;
-  margin-bottom: 1em;
-  z-index: -20;
-  top: -10em;
-  
-}
 
-.donation_card_inside{
+.donation_card{
+  top: -12em;
   width: 100%;
   max-width: 40em;
   height: 15em;
@@ -109,12 +115,22 @@ body{
   border-width: 0.2em;
   border-color: white;
   margin: 0 auto;
-  background: #eb01a5;
-  background-image: url("https://balticgruppen.se/wp-content/uploads/2015/04/8868-005-11.jpg"), linear-gradient( 90deg, rgba(0,0,0,0), rgba(0,0,0,0.9));
-  background-position: left;
   background-size: cover;
+  position: relative;
+  overflow: hidden;
+  background-image: url("http://umehotel.se/sites/umehotel.se/files/styles/fullsize/public/ume1.jpg?itok=530NjfDd");
 }
 
+.donation_top_cover{
+  height: 7em;
+  width: 100%;
+  background: rgba(0,0,0,0.5);
+  box-shadow: 0px 5px 5px rgba(0,0,0,0.2);
+}
+
+.donation_amount_flap{
+  /* Dark flap under donation amount, do make sure it's visible */
+}
 
 .donation_name{
   display: block;
@@ -135,21 +151,55 @@ body{
   width: 95%;
   margin: 0 auto;
   top: 1.6em;
+
+  
 }
 
 .donation_amount{
   color: white;
   font-weight: 800;
-  font-size: 1.3em;
+  font-size: 2.3em;
   position: absolute;
-  right: 0.6em;
+  left: 0.6em;
   bottom: 0.6em;
   text-shadow: 0px 0px 2px white;
 }
 
 .speaker_icon{
+  float: right;
   bottom: 0px;
   right: 0px;
   position: absolute;
   cursor: pointer;
+  transition: transform 0.05s;
 }
+
+.speaker_icon:hover{
+  transform: scale(1.1);
+}
+
+.speaker_icon:active{
+  transform: scale(0.95);
+}
+
+
+
+
+
+
+
+
+
+/* Heart animation */
+.heart{
+  position: absolute;
+  top: -14em;
+  right: 8em;
+  z-index: -5;
+  height: 1em;
+}
+
+
+
+
+

@@ -19,17 +19,18 @@
   <div id="body">
 
     <img src="img/logo-sheet.png" id="header_logo"> <!-- Logga -->
+    <div id="header_wrap">
     <div id="header">
       <a href="#" class="header_button">Hur?</a>
       <a href="#" class="header_button">Om oss!</a>
       <a href="#" class="header_button">Hjälp!</a>
-      
-    <a href="#" id="donate_button">Donera!</a>
+      <a href="#" onmouseenter="mouseStatus(true)" onmouseout="mouseStatus(false)" id="donate_button">Donera!</a>
+    </div>
     </div>
     
     <!-- Display stats -->
     <div id="display_stats">
-      <span id="donationer_text">Donationer:</span>
+      <span id="donationer_text">Senaste donationer:</span>
       <span id="total_donations">Totalt insamlat: 150kr</span>
     </div>
  
@@ -39,20 +40,23 @@
     
       <!-- Donationskort tempalte -->
 
-        <div class="donation_card_inside">
+        <div class="donation_card">
         
-          <span class="donation_name">August Möller</span>
-          <span class="donation_message"> Hej, jag gillar musikhjälpen för jag vill stödja barn som blir utsatta för sexhandeln, hämska saker! SAD!</span>
-          <img alt="Speaker Button" class="speaker_icon" src="img/speaker-icon.png" onclick="console.log('playMusic');">
-          <span class="donation_amount">150:-</span>
+          <div class="donation_top_cover">
+            <span class="donation_name">August Möller</span>
+            <span class="donation_message"> Hej, jag gillar musikhjälpen för jag vill stödja barn som blir utsatta för sexhandeln, hämska saker! SAD!</span>
+          </div>
+          <img title="Musiktitel" alt="Speaker Button" class="speaker_icon" src="img/speaker-icon.png" onclick="console.log('playMusic');">
+          <span class="donation_amount">150kr</span>
 
            
         </div>
       <!-- Slut av template -->
       
       
-
+    <script src="code.js"></script> <!-- Main js. Active -->
     <!-- Slut av Body div, slut av sida. -->
    </div>
+  
 </body>
 </html>

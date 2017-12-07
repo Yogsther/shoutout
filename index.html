@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>NordicTurbo.co</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+	<link href="https://fonts.googleapis.com/css?family=Ubuntu:700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <!-- Mobile friendly scaling -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Socket.io -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+
+</head>
+<body>
+  
+  <div id="body">
+
+    <img src="img/logo-sheet.png" id="header_logo"> <!-- Logga -->
+    <div id="header">
+      <a href="#" class="header_button">Hur?</a>
+      <a href="#" class="header_button">Om oss!</a>
+      <a href="#" class="header_button">Hjälp!</a>
+      
+    <a href="#" id="donate_button">Donera!</a>
+    </div>
+    
+    <!-- Display stats -->
+    <div id="display_stats">
+      <span id="donationer_text">Donationer:</span>
+      <span id="total_donations">Totalt insamlat: 150kr</span>
+    </div>
+ 
+    
+    <!-- Donationskort -->
+    
+    
+      <!-- Donationskort tempalte -->
+
+        <div class="donation_card_inside">
+        
+          <span class="donation_name">August Möller</span>
+          <span class="donation_message"> Hej, jag gillar musikhjälpen för jag vill stödja barn som blir utsatta för sexhandeln, hämska saker! SAD!</span>
+          <img alt="Speaker Button" class="speaker_icon" src="img/speaker-icon.png" onclick="console.log('playMusic');">
+          <span class="donation_amount">150:-</span>
+
+           
+        </div>
+      <!-- Slut av template -->
+      
+      
+
+    <!-- Slut av Body div, slut av sida. -->
+   </div>
+</body>
+</html>

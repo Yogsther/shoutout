@@ -2,7 +2,6 @@ body{
   background: #e3e5ef;
   font-family: 'Muli', sans-serif;
   color: black;
-
 }
 
 #body{
@@ -14,15 +13,29 @@ body{
 }
 
 #header_logo{
-  height: 25em;
+  width: 90%;
+  position: relative;
+  max-width: 30em;
+  top: -8em;
   margin: 0 auto;
   position: relative;
   display: block;
-  top: -7em;
+  cursor: pointer;
+  
+  /* Make image undraggable */
+  
+    user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
 }
 
 #header{
+  margin-top: -6% !important;
   background: #ee304b;
+  box-shadow: 0px 5px 3px rgba(0,0,0,0.1);
   height: 5em;
   border-radius: 0.4em;
   top: -14em;
@@ -31,7 +44,7 @@ body{
   margin: 0 auto;
   overflow: hidden;
   display: block;
-  box-shadow: 0px 5px 3px rgba(0,0,0,0.1)
+  
  
 }
 
@@ -41,6 +54,38 @@ body{
   position: relative;
   margin: 0 auto;
   display: block;
+}
+
+#footer{
+  border-radius: 5px;
+  width: 50%;
+  height: 5em;
+  background: #ee304b;
+  display: block;
+  box-shadow: 0px 5px 3px rgba(0,0,0,0.1);
+  color: white;
+  text-align: center;
+  position: relative;
+  margin: 0 auto;
+  top: -0px;
+}
+
+#links{
+  top: 0.5em;
+  display: block;
+  position: relative;
+}
+
+#mega_image{
+  height: 120px;
+  position: relative;
+  margin: 0 auto;
+  display: block;
+}
+
+a{
+  color: white;
+  text-decoration: underline;
 }
 
 
@@ -58,6 +103,10 @@ body{
   text-align: center;
   line-height: 4.8em;
   font-weight: 800; /* Make text bold */
+}
+
+#donate_button:hover{
+/* todo? */
 }
 
 .header_button{
@@ -201,11 +250,45 @@ body{
 
 
 
+/* Donation form */
 
+#title_text_form{
+  color: white;
+  position: relative;
+  display: block;
+  top: 34px;
+  width: 75%;
+  margin: 0 auto;
+}
 
+#form{
+  height: 40em;
+  width: 60%;
+  min-width: 20em;
+  max-width: 40em;
+  background: black;
+  border-radius: 10px;
+  background: #ee304b;
+  box-shadow: 0px 5px 3px rgba(0,0,0,0.1);
+  position: relative;
+  margin: 0 auto;
+  top: -11em;
+}
 
-
-
+.donate_form{
+  display: block;
+  padding: 1em;
+  font-size: 1em;
+  margin-bottom: 0.5em !important;
+  margin-top: 0.5em !important;
+  position: relative;
+  margin: 0 auto;
+  top: 2em;
+  border-radius: 0.4em;
+  border-style: solid;
+  border-color: lightgrey;
+  width: 70%;
+}
 
 /* Heart animation */
 .heart{
@@ -216,6 +299,44 @@ body{
   z-index: -5;
   height: 1em;
 }
+
+
+#donate_final{
+  top: 2em;
+  position: relative;
+  margin: 0 auto;
+  display: block;
+  text-align: center;
+  border-radius: 0.3em;
+  height: 4em;
+  width: 10em;
+  background: white;
+  color: #ee304b;
+  text-decoration: none;
+  font-size: 1.4em;
+  box-shadow: 0px 5px 3px rgba(0,0,0,0.1);
+  line-height: 3.5em;
+  font-weight: 900;
+  transition: all 0.05s;
+ 
+}
+
+#donate_final:hover{
+  transform: scale(1.05);
+}
+#donate_final:active{
+  transform: scale(0.95);
+}
+
+#donation_welcome{
+  width: 100%;
+  color: #ee304b;
+  width: 60%;
+  margin: 0 auto;
+  top: -12em;
+  position: relative;
+}
+
 
 
 

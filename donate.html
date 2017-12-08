@@ -24,38 +24,39 @@
       <a href="#" class="header_button">Hur?</a>
       <a href="#" class="header_button">Om oss!</a>
       <a href="#" class="header_button">Hjälp!</a>
-      <a href="donate.html" onmouseenter="mouseStatus(true)" onmouseout="mouseStatus(false)" onclick="location.href = 'donate.html'" id="donate_button">Donera!</a>
+      <a href="donate.html" onmouseenter="mouseStatus(true)" onmouseout="mouseStatus(false)" id="donate_button">Donera!</a>
     </div>
     </div>
     
-    <!-- Display stats -->
-    <div id="display_stats">
-      <span id="donationer_text">Totalt insamlat: 150kr</span>
+    <div id="donation_welcome">
+      <b> DONATIONER ÄR STÄNGDA! - Öppnar Måndag 11 7:00</b><br>
+    För att donera, fyll i uppgifterna och vänta på ett SMS.
+      När ditt SMS kommer, öppna Swish på din mobil. Betala (till Musikhjälpen), och din donation kommer snarast visas på hemsidan.
     
     </div>
- 
-    
-    <!-- Donationskort -->
     
     
-    <!-- Donationskort tempalte -->
+    <div id="form">
+    <span id="title_text_form">Namn</span>
+    <input class="donate_form" id="name" placeholder="Namn">
+      <span id="title_text_form">Meddelande<b>*</b></span>
+    <input class="donate_form" id="message" placeholder="Meddelande*">
+      <span id="title_text_form">Bild (länk eller beskrivning) </span>
+    <input class="donate_form" id="image_req" placeholder="En fin bild på väven">
+      <span id="title_text_form">Låt (länk eller titel) </span>
+    <input class="donate_form" id="song_req" placeholder="Jingle Bells - Michael Buble">
+       <span id="title_text_form">Telefon Nummber (för Swish betalning)* </span>
+    <input class="donate_form" id="phone_numb" placeholder="070-123-4567">
+      <span id="title_text_form">Donation (SEK)* </span>
+    <input class="donate_form" id="donation_req" placeholder="30" type="number">
+    <span id="title_text_form" style="font-size: 0.8em">* Måste fyllas i </span>
+      
+      <a href="javascript:" id="donate_final">Donera</a>
+      
+    </div>
+    
+    
 
-        <div class="donation_card">
-          <span class="donation_text">Donation</span>
-          <div class="donation_top_cover">
-            <span class="donation_name">Namn</span>
-            <span class="donation_message"> Meddelande till musikhjälpen!</span>
-          </div>
-          <img title="Musiktitel" alt="Speaker Button" class="speaker_icon" src="img/speaker-icon.png" onclick="console.log('playMusic');">
-          <div class="donation_amount_flap">
-            <span class="donation_amount">150kr</span>
-          </div>
-           
-        </div>
-      <!-- Slut av template -->
-   
-    
-    
     
     <div id="footer">
     <span id="links">

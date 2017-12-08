@@ -1,3 +1,39 @@
+/*
+  --- Socket.io ---
+*/
+
+// Connect to Livingforit servers
+var socket = io.connect("http://213.66.254.63:3074");
+
+socket.on("donations", function(data){
+  // Donations sent from the server
+  
+  
+  
+});
+
+
+
+var donationAmount = document.getElementById("donation_req");
+
+/*
+- Donation form checker
+*/
+
+if(location.href.indexOf("donate") != -1){
+  donationAmount.value = 20;
+}
+
+function donationCheck(){
+  // Run this function when the amount is changed or the donation form is loaded.
+  
+  if(donationAmount.value < 20){
+    donationAmount.value = 20;
+  }
+}
+
+
+
 
 
 /*
@@ -28,10 +64,9 @@ var activeHearts = []; // To prevent duplicated IDs
 var heartsRunning = false;
 
 function spawnHearts(){
-  
   // Spawn heart from Donate button
   setTimeout(function(){
-    new heart();
+    heart();
     if(heartsRunning){
       spawnHearts();
     }
@@ -90,8 +125,4 @@ function heart(){
   }
   
   
-}
-
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
 }

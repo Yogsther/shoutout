@@ -16,39 +16,21 @@
 </head>
 <body>
   
-  <input placeholder="token" id="token" type="password" oninput="saveToken()">
-  <button style="cursor:pointer;" onclick="loadRequests()"> Load requests </button><br>
-  <a href="submitpost.html" style="color: black">Submit new post</a><br>
-  <a href="http://bossan.musikhjalpen.se/insamling/nti-gymnasiet-umea" style="color:black">Bössa</a>
-  <br><br>
-  <span id="requests">
-    <span id="active_requests"></span>
-    <span id="dead_requests"></span>
     
-  </span>
-  
-  <div id="this_request">
-    
-    
-    
-  </div>
-  
+  <input placeholder="Name"><br>
+  <input placeholder="Message"><br>
+  <input placeholder="Amount"><br>
+  <input placeholder="Image URL"><br>
+  <input placeholder="Music SRC"><br><br>
+  <input placeholder="token">
   
   <style>
-  /* TODO - Move to dedicated css file when safe */
-    #this_request{
-      height: 400px;
+  
+    input{
+      height: 30px;
       width: 500px;
-      max-width: 500px;
-      border-style: dashed;
-      position: absolute;
-      top: 5px;
-      left: 300px;
-      padding: 10px;
     }
-    .pre_admin{
-      color: red;
-    }
+    
   </style>
   
       

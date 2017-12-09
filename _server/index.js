@@ -31,26 +31,26 @@ io.on("connection", function(socket){
   
     socket.on("donation_request", function(data){
     
-      console.log("Recived request! " + Date());
+      console.log("Recived donation! " + Date());
       // Recived donation request
       var id = Math.floor(Math.random()*10000000000);
     
       data.timeRequested = Date.now();
+      data.socket = socket.id;
+      data.resolved = false;
     
       var exportData = JSON.stringify(data);
     
       fs.writeFileSync("requests/" + id + ".txt", exportData); // Save request
     });
-  
+
   
   socket.on("loadRequests", function(recivedToken){
     
     
     if(recivedToken === token){
-      
-      console.log("Reviced request, sent it.");
+
       var foundFiles = fs.readdirSync("requests");
-      console.log(foundFiles);
       /*
         var thisFile = fs.readFileSync("requests/" + file, "utf8");
         var parsedFile = JSON.parse(thisFile);  
@@ -62,6 +62,13 @@ io.on("connection", function(socket){
         var data = fs.readFileSync("requests/" + foundFiles[i], "utf8");
         data = JSON.parse(data);
         data.origin = foundFiles[i];
+        
+        if(io.sockets.sockets[data.socket] != undefined){
+          data.active = true;
+        }else{
+          data.active = false;
+        }
+        
         dataToSend.push(data);
       }
       
@@ -75,7 +82,41 @@ io.on("connection", function(socket){
     
   });
   
+  socket.on("resolve", function(data){
+    if(data.token === token){
+      var donation = loadDonaitonRequest(data.origin);
+      donation.resolved = true;
+      var now = Date.now();
+      donation.resolvedAt = now;
+      donation.resolveTime = now - donation.timeRequested;
+      saveDonationRequest(donation, data.origin);
+      // Tell donator that the donation is ready.
+      io.sockets.connected[donation.socket].emit("donation_ready_final", true);
+    } else {
+      return;
+    }
+  });
+
+  socket.on("delete", function(data){
+    if(data.token === token){
+      fs.unlinkSync("requests/" + data.origin);
+    } else {
+      return;
+    }
+  });
   
   
   /* END OF SOCKET */
 });
+
+
+
+function loadDonaitonRequest(id){
+  var donation = fs.readFileSync("requests/" + id, "utf8");
+  return JSON.parse(donation);
+}
+
+function saveDonationRequest(donation, origin){
+  var saveDonation = JSON.stringify(donation);
+  fs.writeFileSync("requests/" + origin, saveDonation);
+}

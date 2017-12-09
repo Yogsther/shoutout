@@ -27,3 +27,17 @@
     <div id="error_div">
 
     </div>
+    
+    
+    
+    ------------------------
+    
+    
+    <span class="pre_admin">Phone #:</span> NAME <button>Copy Phone #</button><br>
+    <span class="pre_admin">Name:</span> NAME<br>
+    <span class="pre_admin">Message:</span> MESSAGE<br>
+    <span class="pre_admin">Amount:</span> MESSAGE<br>
+    <span class="pre_admin">Image:</span> MESSAGE<br>
+    <span class="pre_admin">Music:</span> MESSAGE<br>
+    <span class="pre_admin">Origin:</span> MESSAGE<br>
+    <span class="pre_admin">IP:</span> ???<br>

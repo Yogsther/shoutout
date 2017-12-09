@@ -1,0 +1,9 @@
+{
+  "name": "Shoutout",
+  "version": "0.0.1",
+  "description": "Backend for shoutout",
+  "dependencies": {
+    "express": "^4.15.2",
+    "socket.io": "^2.0.3"
+  }
+}

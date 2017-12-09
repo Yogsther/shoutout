@@ -13,9 +13,38 @@ socket.on("donations", function(data){
 });
 
 
+/*
+- Admin page
+*/
 
+function loadRequests(){
+  
+  var token = document.getElementById("token").value;
+  socket.emit("loadRequests", token);
+  
+  //<a href="" style="color: black;">9823498234</a>
+  
+}
 
+socket.on("requestList", function(data){
+  
+  if(data === "failed"){
+    document.getElementById("requests").innerHTML = "<span style='color:red;'>Failed</span>";
+    return;
+  }
 
+  if(data.length == 0){
+    document.getElementById("requests").innerHTML = "No requests at the moment.";
+    return;
+  }
+  
+  document.getElementById("requests").innerHTML = "";
+  for(var i = 0; i < data.length; i++){
+    document.getElementById("requests").innerHTML += "<a style='color:black' href='javascript:openReq('" + data[i].origin + "')'>" + data[i].origin + "</a><br>";
+  }
+  
+  
+})
 
 /*
 - Donation form checker
@@ -34,11 +63,28 @@ var donationAmount = document.getElementById("donation_req");
 if(location.href.indexOf("donate") != -1){
   try{
     donationAmount.value = 20;
+    getOpeningHours();
   } catch(e){
     
   }
 }
 
+function getOpeningHours(){
+  var time = new Date();
+  if(time.getDate() < 11){
+    // Event has not started.
+    document.getElementById("donation_status").innerHTML = "DONATIONER ÄR STÄNGDA! - Vi öppnar 11 December, och kör genom hela musikhjälpenvekan.";
+    return;
+  }
+  if(time.getHours() < 7){
+    // Closed due to hours.
+    document.getElementById("donation_status").innerHTML = "DONATIONER ÄR STÄNGDA! - Vi öppnar kl 7";
+    return;
+  }
+  
+  
+  
+}
 
 function donationCheck(){
   var error = "";
@@ -64,20 +110,29 @@ function donationCheck(){
     amount: donationAmount.value
   }
   
+  socket.emit("donation_request", dataToSend); // Send request to server.
+  
+  
+  
+  document.getElementById("insert_donation_form").innerHTML = '<div id="donation_after_wrap"> <span style="color: #59e56e" id="donation_status">Din donation behandlas.</span><br> <span id="under_message">Vänligen vänta - Det här kan en minut.</span><br> <img src="img/load_circle.png" id="circle_loader"><br> <span id="delete">När din donation har behandlats, öppna<br> Swish-appen för att slutföra donationen.</span> </div>';
+  
   console.log(dataToSend);
   
-  
-  
+  loadAndWait();
 }
 
-var circle = document.getElementById("circle_loader");
+var circle;
 var donationFinal = false;
 var roation = 0;
 
-loadAndWait();
+
+
+//loadAndWait();
 
 function loadAndWait(){
 
+  circle = document.getElementById("circle_loader");
+  
   roation -= 6;
   circle.style.transform = "rotate(" + roation + "deg)";
   

@@ -14,24 +14,99 @@ socket.on("donations", function(data){
 
 
 
-var donationAmount = document.getElementById("donation_req");
+
+
 
 /*
 - Donation form checker
 */
 
-if(location.href.indexOf("donate") != -1){
-  donationAmount.value = 20;
-}
 
-function donationCheck(){
-  // Run this function when the amount is changed or the donation form is loaded.
-  
-  if(donationAmount.value < 20){
+var name = document.getElementById("name");
+var message = document.getElementById("message");
+var image = document.getElementById("image_req");
+var music = document.getElementById("song_req");
+var phonenumber = document.getElementById("phone_numb");
+var donationAmount = document.getElementById("donation_req");
+
+
+
+if(location.href.indexOf("donate") != -1){
+  try{
     donationAmount.value = 20;
+  } catch(e){
+    
   }
 }
 
+
+function donationCheck(){
+  var error = "";
+  // Run this function when the amount is changed or the donation form is loaded.
+  if(donationAmount.value < 20) error = "Minsta donations mängd är 20kr";
+  if(message.value == "") error = "Du måste ha ett meddelande!";
+  if(phonenumber.value == "") error = "Du måste bidra ett nummer som är kopplat till swish!";
+  
+  if(error != ""){
+    document.getElementById("error_div").innerHTML = "Något gick fel:<br>" + error; 
+    document.getElementById("error_div").scrollIntoView();
+    return;
+  } else {
+    document.getElementById("error_div").innerHTML = ""; 
+  }
+  
+  var dataToSend = {
+    name: document.getElementById("name").value,
+    message: message.value,
+    image: image.value,
+    music: music.value,
+    phone: phonenumber.value,
+    amount: donationAmount.value
+  }
+  
+  console.log(dataToSend);
+  
+  
+  
+}
+
+var circle = document.getElementById("circle_loader");
+var donationFinal = false;
+var roation = 0;
+
+loadAndWait();
+
+function loadAndWait(){
+
+  roation -= 6;
+  circle.style.transform = "rotate(" + roation + "deg)";
+  
+  if(!donationFinal){
+    requestAnimationFrame(loadAndWait);
+    return;
+  } else {
+    circle.classList.toggle("circle_loader_hidden");
+    
+    document.getElementById("donation_status").innerHTML = "Din donation är redo!";
+    document.getElementById("under_message").innerHTML = "Öppna Swish-appen för att slutföra donationen.";
+    document.getElementById("delete").innerHTML = "";
+    
+    setTimeout(function() {
+      circle.src = "img/load_check.png";
+      circle.style.transform = "rotate(0deg)";
+      circle.classList.toggle("circle_loader_display")
+    }, 1000);
+    
+    //
+  }
+  
+}
+
+
+function gotoDonate(){
+  console.log("click");
+  location.href = "donate.html";
+}
 
 
 
@@ -69,8 +144,8 @@ function spawnHearts(){
     heart();
     if(heartsRunning){
       spawnHearts();
-    }
-    }, 200);
+      }
+    }, 400);
   
 }
 

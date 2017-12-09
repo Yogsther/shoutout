@@ -1,0 +1,29 @@
+   <div id="donation_welcome">
+      <b> DONATIONER ÄR STÄNGDA! - Öppnar Måndag 11 7:00</b><br>
+    För att donera, fyll i uppgifterna och vänta på ett SMS.
+      När ditt SMS kommer, öppna Swish på din mobil. Betala (till Musikhjälpen), och din donation kommer snarast visas på hemsidan.
+    
+    </div>
+    
+    
+    <div id="form">
+    <span id="title_text_form">Namn</span>
+    <input class="donate_form" id="name" placeholder="Namn">
+      <span id="title_text_form">Meddelande<b>*</b></span>
+    <input class="donate_form" id="message" placeholder="Meddelande*">
+      <span id="title_text_form">Bild (länk eller beskrivning) </span>
+    <input class="donate_form" id="image_req" placeholder="En fin bild på väven">
+      <span id="title_text_form">Låt (länk eller titel) </span>
+    <input class="donate_form" id="song_req" placeholder="Jingle Bells - Michael Buble">
+       <span id="title_text_form">Telefon Nummber (för Swish betalning)* </span>
+    <input class="donate_form" id="phone_numb" placeholder="070-123-4567" type="tel">
+      <span id="title_text_form">Donation (SEK)* </span>
+    <input class="donate_form" id="donation_req" placeholder="30" type="number">
+    <span id="title_text_form" style="font-size: 0.8em">* Måste fyllas i </span>
+      
+      <a href="javascript:donationCheck()" id="donate_final">Donera</a>
+      
+    </div>
+    <div id="error_div">
+
+    </div>

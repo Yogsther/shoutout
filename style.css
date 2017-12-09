@@ -103,6 +103,15 @@ a{
   text-align: center;
   line-height: 4.8em;
   font-weight: 800; /* Make text bold */
+  cursor: pointer;
+  /* Remove slelection from text */
+   -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
 }
 
 #donate_button:hover{
@@ -337,8 +346,36 @@ a{
   position: relative;
 }
 
+/* När något går fel vid donation, meddelandet visas här. */
+#error_div{
+  width: 50%;
+  color: #ee304b;
+  margin: 0 auto;
+  top: -6em;
+  position: relative;
+  font-weight: 900;
+}
 
 
+#donation_after_wrap{
+  width: 80%;
+  text-align: center;
+  position: relative;
+  top: -12em;
+  margin: 0 auto;
+}
 
+#circle_loader{
+  position: relative;
+  margin: 0 auto;
+  width: 30%;
+  transition: opacity 1s;
+}
 
+.circle_loader_hidden{
+  opacity: 0;
+}
 
+.circle_loader_display{
+  opacity: 1;
+}

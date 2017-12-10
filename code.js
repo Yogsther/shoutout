@@ -22,8 +22,14 @@ socket.on("donations", function(data){
   for(var i = 0; i < donations.length; i++){
     var donation = donations[i];
     totalMoney += Number(donation.amount);
+    var date = new Date(donation.addedTime);
+    //24:32 Dec 10 2017
+    var seconds = date.getSeconds();
+    if(seconds.toString().length != 2){
+      seconds = "0" + seconds;
+    }
     try{
-    document.getElementById("insert_donations").innerHTML += '<div class="donation_card" style="background-image:url(' + donation.image + ');"> <span class="donation_text">Donation</span> <div class="donation_top_cover"> <span class="donation_name">' + donation.name + '</span> <span class="donation_message">' + donation.message + '</span> </div> <!-- <img title="Länka den här donationen" alt="Link donation button" class="link_icon" src="img/link-icon.png" onclick="link(' + i + ')"> --> <img title="Spela upp musik" alt="Speaker Button" class="speaker_icon" src="img/speaker-icon.png" onclick="playMusic(' + i + ')"> <div class="donation_amount_flap"> <span class="donation_amount">' + donation.amount + 'kr</span> </div> </div>';
+    document.getElementById("insert_donations").innerHTML += '<div class="donation_card" style="background-image:url(' + donation.image + ');"> <span class="donation_text">' + date.getHours() + ":" + seconds + " " + date.getDate() + "/" + date.getMonth() + " " + date.getFullYear() + '</span> <div class="donation_top_cover"> <span class="donation_name">' + donation.name + '</span> <span class="donation_message">' + donation.message + '</span> </div> <!-- <img title="Länka den här donationen" alt="Link donation button" class="link_icon" src="img/link-icon.png" onclick="link(' + i + ')"> --> <img title="Spela upp musik" alt="Speaker Button" class="speaker_icon" src="img/speaker-icon.png" onclick="playMusic(' + i + ')"> <div class="donation_amount_flap"> <span class="donation_amount">' + donation.amount + 'kr</span> </div> </div>';
     } catch(e) {
     }
     
@@ -51,10 +57,9 @@ function playMusic(pos){
     } catch(e){
       document.getElementsByClassName("speaker_icon")[pos].src = "img/pause-icon.png";
       eval("window.song_" + pos + " = new Audio()");
-      console.log("Problem: " + "song_" + pos + ".src = " + loadedDonations[pos].music);
       eval("song_" + pos + ".src = '" + loadedDonations[pos].music + "'");
       eval("song_" + pos + ".src");
-      eval("song_" + pos + ".volume = 0.2;")
+      eval("song_" + pos + ".volume = 0.2;");
     }
     musicPlaying = true;
     musicPos = pos;
@@ -73,12 +78,6 @@ function playMusic(pos){
     musicPlaying = false;
   }
     
-
-  
-
-  
-  
-  
 }
 
 function link(pos){

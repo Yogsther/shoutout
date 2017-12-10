@@ -23,7 +23,7 @@ socket.on("donations", function(data){
     var donation = donations[i];
     totalMoney += Number(donation.amount);
     try{
-    document.getElementById("insert_donations").innerHTML += '<div class="donation_card" style="background-image:url(' + donation.image + ');"> <span class="donation_text">Donation</span> <div class="donation_top_cover"> <span class="donation_name">' + donation.name + '</span> <span class="donation_message">' + donation.message + '</span> </div> <img title="Länka den här donationen" alt="Link donation button" class="link_icon" src="img/link-icon.png" onclick="link(' + i + ')"> <img title="Spela upp musik" alt="Speaker Button" class="speaker_icon" src="img/speaker-icon.png" onclick="playMusic(' + i + ')"> <div class="donation_amount_flap"> <span class="donation_amount">' + donation.amount + 'kr</span> </div> </div>';
+    document.getElementById("insert_donations").innerHTML += '<div class="donation_card" style="background-image:url(' + donation.image + ');"> <span class="donation_text">Donation</span> <div class="donation_top_cover"> <span class="donation_name">' + donation.name + '</span> <span class="donation_message">' + donation.message + '</span> </div> <!-- <img title="Länka den här donationen" alt="Link donation button" class="link_icon" src="img/link-icon.png" onclick="link(' + i + ')"> --> <img title="Spela upp musik" alt="Speaker Button" class="speaker_icon" src="img/speaker-icon.png" onclick="playMusic(' + i + ')"> <div class="donation_amount_flap"> <span class="donation_amount">' + donation.amount + 'kr</span> </div> </div>';
     } catch(e) {
     }
     
@@ -37,11 +37,48 @@ socket.on("donations", function(data){
 });
 
 
+var musicPlaying = false;
+var musicPos;
+var musicTest = new Audio();
+
 function playMusic(pos){
-  var song = new Audio();
-  song.src = loadedDonations[pos].music;
-  song.volume = .5;
-  song.play();
+  
+  if(!musicPlaying){
+    try{
+      // New music if it's not already loaded.
+      eval("song_"+pos+".tagName");
+      console.log("OLD");
+    } catch(e){
+      document.getElementsByClassName("speaker_icon")[pos].src = "img/pause-icon.png";
+      eval("window.song_" + pos + " = new Audio()");
+      console.log("Problem: " + "song_" + pos + ".src = " + loadedDonations[pos].music);
+      eval("song_" + pos + ".src = '" + loadedDonations[pos].music + "'");
+      eval("song_" + pos + ".src");
+      eval("song_" + pos + ".volume = 0.2;")
+    }
+    musicPlaying = true;
+    musicPos = pos;
+    document.getElementsByClassName("speaker_icon")[pos].src = "img/pause-icon.png";
+    eval("song_" + pos + ".play()");
+  } else if(musicPlaying && musicPos != pos) {
+    // Pressed new donation
+    eval("song_" + musicPos + ".pause()");
+    document.getElementsByClassName("speaker_icon")[musicPos].src = "img/speaker-icon.png";
+    musicPlaying = false;
+    playMusic(pos);
+  } else {
+    // Paused the same donation
+    eval("song_" + musicPos + ".pause()");
+    document.getElementsByClassName("speaker_icon")[musicPos].src = "img/speaker-icon.png";
+    musicPlaying = false;
+  }
+    
+
+  
+
+  
+  
+  
 }
 
 function link(pos){

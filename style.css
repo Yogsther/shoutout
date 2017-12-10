@@ -400,3 +400,14 @@ a{
   transform: scale(1);
   opacity: 1;
 }
+
+.text_window{
+  position: relative;
+  margin: 0 auto;
+  top: -9em;
+  width: 70%;
+  
+}
+
+
+

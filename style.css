@@ -373,9 +373,11 @@ a{
 }
 
 .circle_loader_hidden{
+  transform: scale(0);
   opacity: 0;
 }
 
 .circle_loader_display{
+  transform: scale(1);
   opacity: 1;
 }

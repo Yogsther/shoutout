@@ -252,7 +252,7 @@ function donationCheck(){
 
 var circle;
 var donationFinal = false;
-var roation = 0;
+var rotation = 0;
 
 
 socket.on("donation_ready_final", function(boolean){
@@ -265,8 +265,12 @@ function loadAndWait(){
 
   circle = document.getElementById("circle_loader");
   
-  roation -= 6;
-  circle.style.transform = "rotate(" + roation + "deg)";
+  rotation -= 6;
+  if(rotation < -360){
+    rotation = 1;
+  }
+  console.log(rotation);
+  circle.style.transform = "rotate(" + rotation + "deg)";
   
   if(!donationFinal){
     requestAnimationFrame(loadAndWait);
@@ -275,21 +279,28 @@ function loadAndWait(){
     
     var success = new Audio();
     success.src = "sound/success.mp3";
-    success.play();
-    
+    circle.style.transition = "opacity 1s, transform 1s";
     circle.classList.toggle("circle_loader_hidden");
+    setTimeout(function(){
+      console.log(circle.style.transform);
+      circle.style.transform = "rotate(0deg), scale(0)";
+   
+      circle.classList.toggle("circle_loader_display");
+      document.getElementById("donation_status").innerHTML = "Din donation är redo!";
+      document.getElementById("under_message").innerHTML = "Öppna Swish-appen för att slutföra donationen.";
+      document.getElementById("delete").innerHTML = "";
+    }, 1000);
     
-    document.getElementById("donation_status").innerHTML = "Din donation är redo!";
-    document.getElementById("under_message").innerHTML = "Öppna Swish-appen för att slutföra donationen.";
-    document.getElementById("delete").innerHTML = "";
     
     setTimeout(function() {
+      circle.style.transition = "opacity 1s, transform 1s";
       circle.src = "img/load_check.png";
       circle.style.transform = "rotate(0deg)";
-      circle.classList.toggle("circle_loader_display")
+      
     }, 1000);
     
     //
+    success.play();
   }
   
 }

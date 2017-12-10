@@ -91,7 +91,11 @@ io.on("connection", function(socket){
       donation.resolveTime = now - donation.timeRequested;
       saveDonationRequest(donation, data.origin);
       // Tell donator that the donation is ready.
-      io.sockets.connected[donation.socket].emit("donation_ready_final", true);
+      try{
+        io.sockets.connected[donation.socket].emit("donation_ready_final", true);
+      } catch(e){
+      }
+      
     } else {
       return;
     }

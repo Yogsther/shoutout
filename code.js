@@ -183,9 +183,19 @@ if(location.href.indexOf("donate") != -1){
   try{
     donationAmount.value = 20;
     getOpeningHours();
+    eventListener();
   } catch(e){
     
   }
+}
+
+function eventListener(){
+  window.addEventListener("keypress", function(e){
+    if(e.keyCode === 13){
+      // Enter key pressed.
+      donationCheck();
+    }
+  });
 }
 
 function getOpeningHours(){
@@ -262,6 +272,11 @@ function loadAndWait(){
     requestAnimationFrame(loadAndWait);
     return;
   } else {
+    
+    var success = new Audio();
+    success.src = "sound/success.mp3";
+    success.play();
+    
     circle.classList.toggle("circle_loader_hidden");
     
     document.getElementById("donation_status").innerHTML = "Din donation är redo!";
@@ -281,7 +296,6 @@ function loadAndWait(){
 
 
 function gotoDonate(){
-  console.log("click");
   location.href = "donate.html";
 }
 

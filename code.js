@@ -5,15 +5,75 @@
 // Connect to Livingforit servers
 var socket = io.connect("http://213.66.254.63:3074");
 
+
+var loadedDonations;
+
 socket.on("donations", function(data){
   // Donations sent from the server  
+  //TODO
+  
+  data.sort(function(a, b) {
+    return a.addedTime - b.addedTime;
+  });
+  
+  loadedDonations = data;
+  var donations = data;
+  
+  for(var i = 0; i < donations.length; i++){
+    var donation = donations[i];
+    console.log(donation);
+    document.getElementById("insert_donations").innerHTML += '<div class="donation_card" style="background-image:url(' + donation.image + ');"> <span class="donation_text">Donation</span> <div class="donation_top_cover"> <span class="donation_name">' + donation.name + '</span> <span class="donation_message">' + donation.message + '</span> </div> <img title="Länka den här donationen" alt="Link donation button" class="link_icon" src="img/link-icon.png" onclick="link(' + i + ')"> <img title="Spela upp musik" alt="Speaker Button" class="speaker_icon" src="img/speaker-icon.png" onclick="playMusic(' + i + ')"> <div class="donation_amount_flap"> <span class="donation_amount">' + donation.amount + 'kr</span> </div> </div>';
+  }
   
 });
+
+
+function playMusic(pos){
+  var song = new Audio();
+  song.src = loadedDonations[pos].music;
+  song.volume = .5;
+  song.play();
+}
+
+function link(pos){
+  // TODO LINK
+}
 
 
 /*
 - Admin page
 */
+
+
+
+function submitDonation(){
+  
+  var name = document.getElementById("name").value;
+  var message = document.getElementById("message").value;
+  var amount = document.getElementById("amount").value;
+  var image = document.getElementById("image").value;
+  var music = document.getElementById("music").value;
+  var origin = document.getElementById("origin").value;
+  var token = document.getElementById("token").value;
+  
+  
+  var package = {
+    name: name,
+    message: message,
+    amount: amount,
+    image: image,
+    music: music,
+    token: token,
+    origin: origin
+  };
+  
+  socket.emit("submitDonation", package);
+}
+
+
+socket.on("callback_submit", function(call){
+  document.getElementById("callback").innerHTML = call;
+})
 
 function loadRequests(){
   
@@ -269,7 +329,7 @@ function loadAndWait(){
   if(rotation < -360){
     rotation = 1;
   }
-  console.log(rotation);
+
   circle.style.transform = "rotate(" + rotation + "deg)";
   
   if(!donationFinal){
@@ -282,7 +342,6 @@ function loadAndWait(){
     circle.style.transition = "opacity 1s, transform 1s";
     circle.classList.toggle("circle_loader_hidden");
     setTimeout(function(){
-      console.log(circle.style.transform);
       circle.style.transform = "rotate(0deg), scale(0)";
    
       circle.classList.toggle("circle_loader_display");

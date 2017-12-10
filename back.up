@@ -41,3 +41,20 @@
     <span class="pre_admin">Music:</span> MESSAGE<br>
     <span class="pre_admin">Origin:</span> MESSAGE<br>
     <span class="pre_admin">IP:</span> ???<br>
+    
+    
+     <!-- Donationskort tempalte -->
+
+        <div class="donation_card">
+          <span class="donation_text">Donation</span>
+          <div class="donation_top_cover">
+            <span class="donation_name">Namn</span>
+            <span class="donation_message"> Meddelande till musikhjälpen!</span>
+          </div>
+          <img title="Länka den här donationen" alt="Link donation button" class="link_icon" src="img/link-icon.png" onclick="console.log('Link');">
+          <img title="Musiktitel" alt="Speaker Button" class="speaker_icon" src="img/speaker-icon.png" onclick="console.log('playMusic');">
+          <div class="donation_amount_flap">
+            <span class="donation_amount">150kr</span>
+          </div>
+        </div>
+      <!-- Slut av template -->

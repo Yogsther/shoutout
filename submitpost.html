@@ -16,14 +16,16 @@
 </head>
 <body>
   
-    
-  <input placeholder="Name"><br>
-  <input placeholder="Message"><br>
-  <input placeholder="Amount"><br>
-  <input placeholder="Image URL"> <a style="color:black;" href="http://www.imgur.com" target="_blank">Imgur</a><br>
-  <input placeholder="Music SRC"><br><br>
-  <input placeholder="token"><br>
-  <button>Submit</button>
+  
+  <input id="name" placeholder="Name"><br>
+  <input id="message" placeholder="Message"><br>
+  <input id="amount" placeholder="Amount"><br>
+  <input id="image" placeholder="Image URL"> <a style="color:black;" href="http://www.imgur.com" target="_blank">Imgur</a><br>
+  <input id="music" placeholder="Music URL"><br><br>
+  <input id="origin" placeholder="origin (ex. 8734598348)" type="text"><br>
+  <input id="token" placeholder="token" type="password"><br>
+  <button onclick="submitDonation()">Submit</button><br>
+  <span id="callback">Ready to send</span>
   <style>
   
     input{
@@ -33,6 +35,7 @@
     button{
       height: 30px;
       margin-top: 5px;
+      width: 500px;
     }
     
   </style>

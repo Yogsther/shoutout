@@ -260,6 +260,24 @@ a{
 
 
 
+.link_icon{
+  float: right;
+  bottom: 5em;
+  right: 0em;
+  position: absolute;
+  cursor: pointer;
+  transition: transform 0.05s;
+}
+
+.link_icon:hover{
+  transform: scale(1.1);
+}
+
+.link_icon:active{
+  transform: scale(0.95);
+}
+
+
 /* Donation form */
 
 #title_text_form{

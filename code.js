@@ -105,7 +105,7 @@ function openReq(id){
   var color = "green";
   if(obj.resolve) color = "grey";
   var resolvedTime = millisToTime(obj.resolveTime); 
-  document.getElementById("this_request").innerHTML = '<span class="pre_admin">Phone #:</span> ' + obj.phone + ' <button onclick="copyToClipboard(' + "'" + obj.phone + "'" + ')">Copy Phone #</button><br><span class="pre_admin">Amount:</span> ' + obj.amount + '<br> <span class="pre_admin">Name:</span> ' + obj.name + '<br> <span class="pre_admin">Message:</span> ' + obj.message + '<br><span class="pre_admin">Image:</span> ' + obj.image + '<br> <span class="pre_admin">Music:</span> ' + obj.music + '<br> <span class="pre_admin">Origin:</span> ' + obj.origin + '<br> <span class="pre_admin">IP:</span> ???<br><span style="color:'+color+'">Resolved: ' + obj.resolved + '</span><br><span class="pre_admin">Resolved time: </span>' + resolvedTime.minutes + 'm ' + resolvedTime.seconds + 's  <br><br> <a href="javascript:resolve(' + "'"  + obj.origin + "'"+ ')" style="color:' + color + ';">Resolve</a> <br><br><a href="javascript:deleteObj(' + "'"  + obj.origin + "'"+ ')" style="color:red;">Delete</a>';
+  document.getElementById("this_request").innerHTML = '<span class="pre_admin">Phone #:</span> ' + obj.phone + '<button onclick="copyToClipboard(' + "'" + obj.phone + "'" + ')">Copy Phone #</button><br><span class="pre_admin">Amount:</span> ' + obj.amount + '<br> <span class="pre_admin">Name:</span> ' + obj.name + '<br> <span class="pre_admin">Message:</span> ' + obj.message + '<br><span class="pre_admin">Image:</span> ' + obj.image + '<br> <span class="pre_admin">Music:</span> ' + obj.music + '<br> <span class="pre_admin">Origin:</span> ' + obj.origin + '<br> <span class="pre_admin">IP:</span> ???<br><span style="color:'+color+'">Resolved: ' + obj.resolved + '</span><br><span class="pre_admin">Resolved time: </span>' + resolvedTime.minutes + 'm ' + resolvedTime.seconds + 's  <br><br> <a href="javascript:resolve(' + "'"  + obj.origin + "'"+ ')" style="color:' + color + ';">Resolve</a> <br><br><a href="javascript:deleteObj(' + "'"  + obj.origin + "'"+ ')" style="color:red;">Delete</a>';
 }
 
 function resolve(id){
@@ -291,20 +291,6 @@ function gotoDonate(){
 /*
  --- Spawn hearts on hover (donation button) ---
 */
-
-
-// Mouse status
-function mouseStatus(state){
-  mouseOver = state;
-  
-  if(mouseOver && !heartsRunning){
-    heartsRunning = true;
-    spawnHearts();
-  }
-  if(!mouseOver){
-    heartsRunning = false;
-  }
-}
 
 
 

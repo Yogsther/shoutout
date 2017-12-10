@@ -145,7 +145,7 @@ io.on("connection", function(socket){
       var donation = JSON.stringify(package);
       
       fs.writeFileSync("donations/" + package.origin + ".txt", donation);
-    
+      
       console.log("Added new donation!");
       io.sockets.connected[socket.id].emit("callback_submit", "<span style='color:lightgreen;'>Sent and added!</span>");
     } else {
@@ -165,7 +165,9 @@ function emitDonations(socket){
   var donationPackage = [];
   for(var i = 0; i < donations.length; i++){
     var donation = fs.readFileSync("donations/" + donations[i],"utf8");
-    donationPackage.push(JSON.parse(donation));
+    donation = JSON.parse(donation);
+    donation.token = "*";
+    donationPackage.push(donation);
   }
   io.sockets.connected[socket].emit("donations", donationPackage);
 }

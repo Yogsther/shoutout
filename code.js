@@ -13,18 +13,27 @@ socket.on("donations", function(data){
   //TODO
   
   data.sort(function(a, b) {
-    return a.addedTime - b.addedTime;
+    return b.addedTime - a.addedTime;
   });
   
   loadedDonations = data;
   var donations = data;
-  
+  var totalMoney = 0;
   for(var i = 0; i < donations.length; i++){
     var donation = donations[i];
-    console.log(donation);
+    totalMoney += Number(donation.amount);
+    try{
     document.getElementById("insert_donations").innerHTML += '<div class="donation_card" style="background-image:url(' + donation.image + ');"> <span class="donation_text">Donation</span> <div class="donation_top_cover"> <span class="donation_name">' + donation.name + '</span> <span class="donation_message">' + donation.message + '</span> </div> <img title="Länka den här donationen" alt="Link donation button" class="link_icon" src="img/link-icon.png" onclick="link(' + i + ')"> <img title="Spela upp musik" alt="Speaker Button" class="speaker_icon" src="img/speaker-icon.png" onclick="playMusic(' + i + ')"> <div class="donation_amount_flap"> <span class="donation_amount">' + donation.amount + 'kr</span> </div> </div>';
+    } catch(e) {
+    }
+    
+    try{
+      document.getElementById("total_amount").innerHTML = totalMoney + "kr";
+    }catch(e){
+      
+    }
+    
   }
-  
 });
 
 

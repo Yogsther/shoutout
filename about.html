@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>NordicTurbo.co</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+	<link href="https://fonts.googleapis.com/css?family=Ubuntu:700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <!-- Mobile friendly scaling -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Socket.io -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+
+</head>
+<body>
+  
+  <div id="body">
+
+    <img src="img/logo-sheet.png" id="header_logo" onclick="location.href = 'index.html'"> <!-- Logga -->
+    <div id="header_wrap">
+    <div id="header">
+      <a href="how.html" class="header_button">Hur?</a>
+      <a href="about.html" class="header_button">Om oss!</a>
+      <a href="help.html" class="header_button">Hjälp!</a>
+      <a href="donate.html" onmouseenter="mouseStatus(true)" onmouseout="mouseStatus(false)" onclick="location.href = 'donate.html'" id="donate_button">Donera!</a>
+    </div>
+    </div>
+    
+    <!-- Display stats -->
+    <div id="display_stats">
+      <span id="donationer_text">Totalt insamlat: 150kr</span>
+    </div>
+      
+      <!-- Content -->
+      <div class="container">
+          
+          <span id="about_title"> Om oss </span>
+          </div>
+          <div id="about_container">
+            <span id="about_title"> Hej!</span> <br> <br>
+              <span> Vi är ett gäng (5st) elever som går andra året på NTI-gymnasiet här i Umeå. Vi tänkte helt enkelt att vi ville hjälpa musikhjälpen att samla ihop bidrag till kampen mot barnsexhandeln världen runt. </span>
+              <br><br>
+              <span>
+              fortsättn.
+              </span>
+          </div>
+          
+      
+      
+      <!-- Footer -->
+      <div id="footer">
+    <span id="links">
+      <a href="http://www.ntigymnasiet.se/umea"> NTI-Gymnasiet Umeå </a><br>
+      <a href="#"> Användarvillkor </a><br>
+      <a href="restricted.html"> Admin page</a>  
+      </span>
+    </div>
+    <img alt="Megaphone" src="img/megaphone.png" id="mega_image">
+      
+    <script src="code.js"></script> <!-- Main js. Active -->
+    <!-- Slut av Body div, slut av sida. -->
+   </div>
+    
+    </body>
+</html>

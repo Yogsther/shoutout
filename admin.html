@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Admin deck</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+	<link href="https://fonts.googleapis.com/css?family=Ubuntu:700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <!-- Mobile friendly scaling -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Socket.io -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+
+</head>
+<body>
+  
+  <input placeholder="token" id="token" type="password" oninput="saveToken()">
+  <button style="cursor:pointer;" onclick="loadRequests()"> Load requests </button><br>
+  <a href="submitpost.html" style="color: black" target="_blank">Submit new donation</a><br>
+  <a href="http://bossan.musikhjalpen.se/insamling/nti-gymnasiet-umea" style="color:black" target="_blank">Bössa</a>
+  <br><br>
+  <span id="requests">
+    <span id="active_requests"></span>
+    <span id="dead_requests"></span>
+    
+  </span>
+  
+  <div id="this_request">
+    
+    
+    
+  </div>
+  
+  
+  <style>
+  /* TODO - Move to dedicated css file when safe */
+    #this_request{
+      height: 400px;
+      width: 500px;
+      max-width: 500px;
+      border-style: dashed;
+      position: absolute;
+      top: 5px;
+      left: 300px;
+      padding: 10px;
+    }
+    .pre_admin{
+      color: red;
+    }
+  </style>
+  
+      
+    <script src="code.js"></script> <!-- Main js. Active -->
+    <!-- Slut av Body div, slut av sida. -->
+
+  
+</body>
+</html>

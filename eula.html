@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Shoutout!</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+	<link href="https://fonts.googleapis.com/css?family=Ubuntu:700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <!-- Mobile friendly scaling -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Socket.io -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+
+</head>
+<body>
+  
+  <div id="body">
+
+    <img src="img/logo-sheet.png" id="header_logo" onclick="location.href = 'index.html'"> <!-- Logga -->
+    <div id="header_wrap">
+    <div id="header">
+      <a href="index.html" class="header_button">Hem</a>
+      <a href="about.html" class="header_button">Om oss!</a>
+      <a href="help.html" class="header_button">Hjälp!</a>
+      <a onclick="gotoDonate()" id="donate_button">Donera!</a>
+    </div>
+    </div>
+
+    <!-- MIDDLE -->
+    <div class="text_window">
+      
+      <h2>Användarvillkor Shoutout!</h2>
+      
+      
+      
+
+      Dessa är användarvillkoren för tjänsten Shoutout!
+      Det är detta som gäller!
+
+      <h4>1.</h4>
+      Vi ger oss rätten att själv bestämma vilka donationer som kommer visas på sidan.
+
+      <h4>2.</h4>
+      Alla donationer som skickas in kommer att granskas manuellt av oss här på Shoutout.
+      Om en donation innehåller kränkande, våldsamt, pornografiskt eller innehåll som annars
+      enligt oss är opassande kommer den inte visas på sidan.
+
+      <h4>3.</h4>
+      Telefonnummer kommer sparas temporärt under veckan. Den 18e December raderas alla
+      insamlade telefonnummer. Insamlade telefonnummer kommer
+      endast användas till syftet att skicka en swish-förfrågan.
+
+      <h4>4.</h4>
+      Vi ansvarar inte för tekniska fel med Musikhjälpens bössa eller Swish.
+
+      <h4>5.</h4>
+      Din donation kommer att gå till NTI-Gymansiet Umeås bössa på musikhjälpen.
+
+      
+      
+    
+    </div>
+    
+    <div id="footer">
+    <span id="links">
+      <a href="http://www.ntigymnasiet.se/umea">NTI Gymnasiet</a><br>
+      <a href="eula.html">Användarvillkor</a><br>
+      <a href="how.html">Hur funkar det?</a>  
+      </span>
+    </div>
+    <img alt="Megaphone" src="img/megaphone.png" id="mega_image">
+      
+    <script src="code.js"></script> <!-- Main js. Active -->
+    <!-- Slut av Body div, slut av sida. -->
+   </div>
+  
+</body>
+</html>

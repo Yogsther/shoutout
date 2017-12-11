@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Submit Donation</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+	<link href="https://fonts.googleapis.com/css?family=Ubuntu:700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <!-- Mobile friendly scaling -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Socket.io -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+
+</head>
+<body>
+  
+  
+  <input id="name" placeholder="Name"><br>
+  <input id="message" placeholder="Message"><br>
+  <input id="amount" placeholder="Amount"><br>
+  <input id="image" placeholder="Image URL"> <a style="color:black;" href="http://www.imgur.com" target="_blank">Imgur</a><br>
+  <input id="music" placeholder="Music URL"><br><br>
+  <input id="origin" placeholder="origin (ex. 8734598348)" type="text"><br>
+  <input id="token" placeholder="token" type="password"><br>
+  <button onclick="submitDonation()">Submit</button><br>
+  <span id="callback">Ready to send</span>
+  <style>
+  
+    input{
+      height: 30px;
+      width: 500px;
+    }
+    button{
+      height: 30px;
+      margin-top: 5px;
+      width: 500px;
+    }
+    
+  </style>
+  
+      
+    <script src="code.js"></script> <!-- Main js. Active -->
+    <!-- Slut av Body div, slut av sida. -->
+
+  
+</body>
+</html>

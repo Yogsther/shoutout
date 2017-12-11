@@ -1,0 +1,419 @@
+body{
+  background: #e3e5ef;
+  font-family: 'Muli', sans-serif;
+  color: black;
+}
+
+#body{
+  max-width: 50em;
+  position: relative;
+  margin: 0 auto;
+  max-height: 20em;
+
+}
+
+#header_logo{
+  width: 100%;
+  position: relative;
+  max-width: 30em;
+  margin: 0 auto;
+  position: relative;
+  display: block;
+  cursor: pointer;
+  margin-bottom: 10em !important;
+  
+  /* Make image undraggable */
+  
+    user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+#header{
+  
+  background: #ee304b;
+  box-shadow: 0px 5px 3px rgba(0,0,0,0.1);
+  height: 5em;
+  border-radius: 0.4em;
+  top: -14em;
+  width: 100%;
+  position: relative;
+  margin: 0 auto;
+  overflow: hidden;
+  display: block;
+  
+ 
+}
+
+#header_wrap{
+  height: 5em;
+  width: 100%;
+  position: relative;
+  margin: 0 auto;
+  display: block;
+  top: 4.2em;
+}
+
+#footer{
+  border-radius: 5px;
+  width: 50%;
+  height: 5em;
+  background: #ee304b;
+  display: block;
+  box-shadow: 0px 5px 3px rgba(0,0,0,0.1);
+  color: white;
+  text-align: center;
+  position: relative;
+  margin: 0 auto;
+  top: -0px;
+}
+
+#links{
+  top: 0.5em;
+  display: block;
+  position: relative;
+}
+
+#mega_image{
+  height: 120px;
+  position: relative;
+  margin: 0 auto;
+  display: block;
+}
+
+a{
+  color: white;
+  text-decoration: underline;
+}
+
+
+#donate_button{
+  width: 35.5%;
+  height: 100%;
+  background: white;
+  height: 100%;
+  /*border-radius: 0.4em;*/
+  right: 0px;
+  top: 0px;
+  position: absolute;
+  color: #ee304b;
+  text-decoration: none;
+  text-align: center;
+  line-height: 4.8em;
+  font-weight: 800; /* Make text bold */
+  cursor: pointer;
+  /* Remove slelection from text */
+   -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+#donate_button:hover{
+/* todo? */
+}
+
+.header_button{
+  color: white;
+  text-decoration: none;
+  height: 110%;
+  display: inline-block;
+  width: 21.6%;
+  text-align: center;
+  line-height: 4.8em;
+  transition: background 0.2s, top 1s;
+  position: relative;
+  margin: -0.1em;
+}
+
+.header_button:hover{
+  background: rgba(0,0,0,0.2); 
+}
+
+#display_stats{
+  background: #c52037;
+  display: block;
+  top: -10.6em;
+  width: 90%;
+  height: 2em;
+  color: white;
+  line-height: 2.7em;
+  padding: 0.4em;
+  border-radius: 0.4em;
+  margin: 0 auto;
+  position: relative;
+  z-index: -3;
+}
+
+#donationer_text{
+  
+}
+#total_donations{
+  float: right;
+}
+
+
+
+/* Donationskort */
+
+
+.donation_text{
+  color: white;
+  font-weight: 900;
+  position: absolute;
+  top: 1em;
+  right: 2em
+}
+
+.donation_card{
+  top: -9em;
+  width: 100%;
+  max-width: 40em;
+  height: 15em;
+  background: #ee304b;
+  border-radius: 1em;
+  margin: 0 auto;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+  background-image: url("http://umehotel.se/sites/umehotel.se/files/styles/fullsize/public/ume1.jpg?itok=530NjfDd");
+  box-shadow: 0px 3px 10px rgba(0,0,0,0.5);
+  transition: box-shadow 0.3s;
+  margin-bottom: 1em;
+}
+.donation_card:hover{
+   box-shadow: 0px 5px 10px rgba(0,0,0,0.5);
+}
+
+.donation_top_cover{
+  height: 7em;
+  width: 100%;
+  background: rgba(0,0,0,0.5);
+  box-shadow: 0px 5px 5px rgba(0,0,0,0.2);
+}
+
+.donation_amount_flap{
+  /* Dark flap under donation amount, do make sure it's visible */
+  height: 3.5em;
+  width: 40%;
+  position: absolute;
+  bottom: 1em;
+  background-image: linear-gradient(90deg, rgba(0,0,0,0.7), rgba(0,0,0,0));
+}
+
+.donation_amount{
+  color: white;
+  font-weight: 800;
+  font-size: 2.3em;
+  position: absolute;
+  left: 0.6em;
+  bottom: 0.12em;
+  text-shadow: 0px 0px 2px white;
+}
+
+
+.donation_name{
+  display: block;
+  font-size: 1.2em;
+  color: white;
+  font-weight: 900;
+  top: 0.7em;
+  width: 95%;
+  margin: 0 auto;
+  position: relative;
+  
+}
+
+.donation_message{
+  color: white;
+  display: block;
+  position: relative;
+  width: 95%;
+  margin: 0 auto;
+  top: 1.6em;
+
+  
+}
+
+.speaker_icon{
+  float: right;
+  bottom: 0px;
+  right: 0px;
+  position: absolute;
+  cursor: pointer;
+  transition: transform 0.05s;
+}
+
+.speaker_icon:hover{
+  transform: scale(1.1);
+}
+
+.speaker_icon:active{
+  transform: scale(0.95);
+}
+
+
+
+.link_icon{
+  float: right;
+  bottom: 5em;
+  right: 0em;
+  position: absolute;
+  cursor: pointer;
+  transition: transform 0.05s;
+}
+
+.link_icon:hover{
+  transform: scale(1.1);
+}
+
+.link_icon:active{
+  transform: scale(0.95);
+}
+
+
+/* Donation form */
+
+#title_text_form{
+  color: white;
+  position: relative;
+  display: block;
+  top: 34px;
+  width: 75%;
+  margin: 0 auto;
+}
+
+#form{
+  height: 40em;
+  width: 60%;
+  min-width: 20em;
+  max-width: 40em;
+  background: black;
+  border-radius: 10px;
+  background: #ee304b;
+  box-shadow: 0px 5px 3px rgba(0,0,0,0.1);
+  position: relative;
+  margin: 0 auto;
+  top: -7em;
+}
+
+.donate_form{
+  display: block;
+  padding: 1em;
+  font-size: 1em;
+  margin-bottom: 0.5em !important;
+  margin-top: 0.5em !important;
+  position: relative;
+  margin: 0 auto;
+  top: 2em;
+  border-radius: 0.4em;
+  border-style: solid;
+  border-color: lightgrey;
+  width: 70%;
+}
+
+/* Heart animation */
+.heart{
+  fill: green !important;
+  position: absolute;
+  top: -14em;
+  right: 8em;
+  z-index: -5;
+  height: 1em;
+}
+
+
+#donate_final{
+  top: 2em;
+  position: relative;
+  margin: 0 auto;
+  display: block;
+  text-align: center;
+  border-radius: 0.3em;
+  height: 4em;
+  width: 10em;
+  background: white;
+  color: #ee304b;
+  text-decoration: none;
+  font-size: 1.4em;
+  box-shadow: 0px 5px 3px rgba(0,0,0,0.1);
+  line-height: 3.5em;
+  font-weight: 900;
+  transition: all 0.05s;
+ 
+}
+
+#donate_final:hover{
+  transform: scale(1.05);
+}
+#donate_final:active{
+  transform: scale(0.95);
+}
+
+#donation_welcome{
+  width: 100%;
+  color: #ee304b;
+  width: 60%;
+  margin: 0 auto;
+  top: -8em;
+  position: relative;
+}
+
+/* När något går fel vid donation, meddelandet visas här. */
+#error_div{
+  width: 50%;
+  color: #ee304b;
+  margin: 0 auto;
+  top: -1em;
+  position: relative;
+  font-weight: 900;
+}
+
+
+#donation_after_wrap{
+  width: 80%;
+  text-align: center;
+  position: relative;
+  top: -7em;
+  margin: 0 auto;
+}
+
+#circle_loader{
+  position: relative;
+  margin: 0 auto;
+  width: 30%;
+  transition: opacity 1s;
+}
+
+.circle_loader_hidden{
+  transform: scale(0);
+  opacity: 0;
+}
+
+.circle_loader_display{
+  transform: scale(1);
+  opacity: 1;
+}
+
+.text_window{
+  position: relative;
+  margin: 0 auto;
+  top: -9em;
+  width: 70%;
+  
+}
+
+h4{
+  margin-bottom: 0.4em;
+}
+
+
+

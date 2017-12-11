@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Shoutout!</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+	<link href="https://fonts.googleapis.com/css?family=Ubuntu:700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <!-- Mobile friendly scaling -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Socket.io -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+
+</head>
+<body>
+  
+  <div id="body">
+
+    <img src="img/logo-sheet.png" id="header_logo" onclick="location.href = 'index.html'"> <!-- Logga -->
+    <div id="header_wrap">
+    <div id="header">
+      <a href="index.html" class="header_button">Hem</a>
+      <a href="about.html" class="header_button">Om oss!</a>
+      <a href="help.html" class="header_button">Hjälp!</a>
+      <a onclick="gotoDonate()" id="donate_button">Donera!</a>
+    </div>
+    </div>
+    <span id="insert_donation_form">
+       <div id="donation_welcome">
+         <b> <span id="donation_status"><span style="color:#4cef4f;">Donationer är öppna!</span></span> <br><br>Öppetider: 7-24</b><br>
+      För att donera, fyll i uppgifterna och vänta på bekräftelse.
+      När din donation är redo, öppna Swish på din mobil. Betala (till Musikhjälpen), och din donation kommer snarast visas på hemsidan.
+      </div>
+    
+    
+    <div id="form">
+    <span id="title_text_form">Namn</span>
+    <input class="donate_form" id="name" placeholder="Namn">
+      <span id="title_text_form">Meddelande<b>*</b></span>
+    <input class="donate_form" id="message" placeholder="Meddelande">
+      <span id="title_text_form">Bild (länk eller beskrivning) </span>
+    <input class="donate_form" id="image_req" placeholder="Lämna tomt om du inte vill ha en bild.">
+      <span id="title_text_form">Låt (länk eller titel) </span>
+    <input class="donate_form" id="song_req" placeholder="Lämna tomt om du inte vill ha en låt.">
+       <span id="title_text_form">Telefon Nummber (för Swish betalning)* </span>
+    <input class="donate_form" id="phone_numb" placeholder="070 123 4567" type="tel">
+      <span id="title_text_form">Donation (SEK)* </span>
+    <input class="donate_form" id="donation_req" placeholder="30" type="number">
+    <span id="title_text_form" style="font-size: 0.8em">* Måste fyllas i </span>
+      
+    <a href="javascript:donationCheck()" id="donate_final">Donera</a>
+      
+    </div>
+    <div id="error_div">
+
+    </div>
+
+    </span>
+    <div id="footer">
+    <span id="links">
+      <a href="http://www.ntigymnasiet.se/umea">NTI Gymnasiet</a><br>
+      <a href="eula.html">Användarvillkor</a><br>
+      <a href="how.html">Hur funkar det?</a>  
+      </span>
+    </div>
+    <img alt="Megaphone" src="img/megaphone.png" id="mega_image">
+      
+    <script src="code.js"></script> <!-- Main js. Active -->
+    <!-- Slut av Body div, slut av sida. -->
+   </div>
+  
+</body>
+</html>

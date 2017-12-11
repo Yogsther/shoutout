@@ -180,6 +180,8 @@ a{
   border-radius: 1em;
   margin: 0 auto;
   background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   position: relative;
   overflow: hidden;
   background-image: url("http://umehotel.se/sites/umehotel.se/files/styles/fullsize/public/ume1.jpg?itok=530NjfDd");

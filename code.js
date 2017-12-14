@@ -8,6 +8,7 @@ var socket = io.connect("http://213.66.254.63:3074");
 
 var loadedDonations;
 
+
 socket.on("donations", function(data){
   // Donations sent from the server  
   //TODO
@@ -29,7 +30,7 @@ socket.on("donations", function(data){
       seconds = "0" + seconds;
     }
     try{
-    document.getElementById("insert_donations").innerHTML += '<div class="donation_card" style="background-image:url(' + donation.image + ');"> <span class="donation_text">' + date.getHours() + ":" + seconds + " " + date.getDate() + "/" + date.getMonth() + " " + date.getFullYear() + '</span> <div class="donation_top_cover"> <span class="donation_name">' + donation.name + '</span> <span class="donation_message">' + donation.message + '</span> </div> <!-- <img title="Länka den här donationen" alt="Link donation button" class="link_icon" src="img/link-icon.png" onclick="link(' + i + ')"> --> <img title="Spela upp musik" alt="Speaker Button" class="speaker_icon" src="img/speaker-icon.png" onclick="playMusic(' + i + ')"> <div class="donation_amount_flap"> <span class="donation_amount">' + donation.amount + 'kr</span> </div> </div>';
+    document.getElementById("insert_donations").innerHTML += '<div class="donation_card" style="background-image:url(' + donation.image + ');"> <span class="donation_text">' + date.getHours() + ":" + seconds + " " + date.getDate() + "/" + (date.getMonth()+1) + " " + date.getFullYear() + '</span> <div class="donation_top_cover"> <span class="donation_name">' + donation.name + '</span> <span class="donation_message">' + donation.message + '</span> </div> <!-- <img title="Länka den här donationen" alt="Link donation button" class="link_icon" src="img/link-icon.png" onclick="link(' + i + ')"> --> <img title="Spela upp musik" alt="Speaker Button" class="speaker_icon" src="img/speaker-icon.png" onclick="playMusic(' + i + ')"> <div class="donation_amount_flap"> <span class="donation_amount">' + donation.amount + 'kr</span> </div> </div>';
     } catch(e) {
     }
     
@@ -40,6 +41,15 @@ socket.on("donations", function(data){
     }
     
   }
+  
+  
+if(location.href.indexOf("donation") != -1){
+  try{
+    loadCustomDonation();
+  } catch(e){
+  }
+}
+
 });
 
 
@@ -53,7 +63,6 @@ function playMusic(pos){
     try{
       // New music if it's not already loaded.
       eval("song_"+pos+".tagName");
-      console.log("OLD");
     } catch(e){
       document.getElementsByClassName("speaker_icon")[pos].src = "img/pause-icon.png";
       eval("window.song_" + pos + " = new Audio()");
@@ -266,6 +275,35 @@ if(location.href.indexOf("admin") != -1){
     document.getElementById("token").value = readCookie("token");
     loadRequests();
   } catch(e){
+  }
+}
+
+
+
+function loadCustomDonation(){
+
+  var url = location.href;
+  var donationOriginStart = url.indexOf("?");
+  var donationOrigin = url.substr((donationOriginStart+1), url.length);
+  
+  try{
+    var donation = null;
+    for(var i = 0; i < loadedDonations.length; i++){
+      if(loadedDonations[i].origin == donationOrigin) donation = loadedDonations[i];
+    }
+  } catch(e){
+  }
+  
+  if(donation != null){
+
+    var date = new Date(donation.addedTime);
+    //24:32 Dec 10 2017
+    var seconds = date.getSeconds();
+    if(seconds.toString().length != 2){
+      seconds = "0" + seconds;
+    }
+
+    document.getElementById("insert_donation_special").innerHTML += '<div class="donation_card" style="background-image:url(' + donation.image + ');"> <span class="donation_text">' + date.getHours() + ":" + seconds + " " + date.getDate() + "/" + (date.getMonth()+1) + " " + date.getFullYear() + '</span> <div class="donation_top_cover"> <span class="donation_name">' + donation.name + '</span> <span class="donation_message">' + donation.message + '</span> </div> <!-- <img title="Länka den här donationen" alt="Link donation button" class="link_icon" src="img/link-icon.png" onclick="link(' + i + ')"> --> <img title="Spela upp musik" alt="Speaker Button" class="speaker_icon" src="img/speaker-icon.png" onclick="playMusic(' + i + ')"> <div class="donation_amount_flap"> <span class="donation_amount">' + donation.amount + 'kr</span> </div> </div>';
   }
 }
 

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Shoutout!</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+	<link href="https://fonts.googleapis.com/css?family=Ubuntu:700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <!-- Mobile friendly scaling -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Socket.io -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+
+</head>
+<body>
+  
+  <div id="body">
+
+    <img src="img/logo-sheet.png" id="header_logo" onclick="location.href = 'index.html'"> <!-- Logga -->
+
+      
+    <span id="insert_donation_special">
+    </span>
+
+
+    <style>
+
+    
+      #header_logo{
+        width: 40%;
+
+        }
+    
+      #footer, #mega_image{
+        top: 10em;
+      }
+    
+      body{
+        background: #111;
+        }
+      
+      #insert_donation_special{
+        position: relative;
+        top: 2em;
+      }
+    </style>
+    
+    <div id="footer">
+    <span id="links">
+      <a href="http://www.ntigymnasiet.se/umea">NTI Gymnasiet</a><br>
+      <a href="eula.html">Användarvillkor</a><br>
+      <a href="how.html">Hur funkar det?</a>  
+      </span>
+    </div>
+    <img alt="Megaphone" src="img/megaphone.png" id="mega_image">
+      
+    <script src="code.js"></script> <!-- Main js. Active -->
+    <!-- Slut av Body div, slut av sida. -->
+   </div>
+  
+</body>
+</html>

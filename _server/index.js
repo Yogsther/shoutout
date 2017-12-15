@@ -165,8 +165,13 @@ function emitDonations(socket){
   var donationPackage = [];
   for(var i = 0; i < donations.length; i++){
     var donation = fs.readFileSync("donations/" + donations[i],"utf8");
+    var orgRequest = fs.readFileSync("requests/" + donations[i], "utf8");
+    orgRequest = JSON.parse(orgRequest);
     donation = JSON.parse(donation);
+    
     donation.token = "*";
+    
+    donation.addedTime = orgRequest.timeRequested;
     donationPackage.push(donation);
   }
   io.sockets.connected[socket].emit("donations", donationPackage);

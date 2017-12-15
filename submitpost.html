@@ -15,8 +15,13 @@
 
 </head>
 <body>
+  Load existing donation from Origin<br>
+  <select id="load_existing_donation" oninput="loadFromOrigin()">
+    <option value="null">Load donation</option>
+  </select>
   
-  
+  <br><br>
+  Submit new donation:<br>
   <input id="name" placeholder="Name"><br>
   <input id="message" placeholder="Message"><br>
   <input id="amount" placeholder="Amount"><br>
@@ -28,7 +33,8 @@
   <span id="callback">Ready to send</span>
   <style>
   
-    input{
+    
+    input, select{
       height: 30px;
       width: 500px;
     }

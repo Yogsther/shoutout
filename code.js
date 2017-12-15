@@ -30,7 +30,8 @@ socket.on("donations", function(data){
       seconds = "0" + seconds;
     }
     try{
-    document.getElementById("insert_donations").innerHTML += '<div class="donation_card" style="background-image:url(' + donation.image + ');"> <span class="donation_text">' + date.getHours() + ":" + seconds + " " + date.getDate() + "/" + (date.getMonth()+1) + " " + date.getFullYear() + '</span> <div class="donation_top_cover"> <span class="donation_name">' + donation.name + '</span> <span class="donation_message">' + donation.message + '</span> </div> <!-- <img title="Länka den här donationen" alt="Link donation button" class="link_icon" src="img/link-icon.png" onclick="link(' + i + ')"> --> <img title="Spela upp musik" alt="Speaker Button" class="speaker_icon" src="img/speaker-icon.png" onclick="playMusic(' + i + ')"> <div class="donation_amount_flap"> <span class="donation_amount">' + donation.amount + 'kr</span> </div> </div>';
+  
+    document.getElementById("insert_donations").innerHTML += '<div class="donation_card" style="background-image:url(' + donation.image + ');"> <span class="donation_text">' + date.getHours() + ":" + seconds + " " + date.getDate() + "/" + (date.getMonth()+1) + " " + date.getFullYear() + '</span> <div class="donation_top_cover"> <span class="donation_name">' + donation.name + '</span> <span class="donation_message">' + donation.message + '</span> </div> <a href="' + 'donation.html?' + donation.origin  + '"><img title="Länka den här donationen" alt="Link donation button" class="link_icon" src="img/link-icon.png"></a>  <img title="Spela upp musik" alt="Speaker Button" class="speaker_icon" src="img/speaker-icon.png" onclick="playMusic(' + i + ')"> <div class="donation_amount_flap"> <span class="donation_amount">' + donation.amount + 'kr</span> </div> </div>';
     } catch(e) {
     }
     
@@ -49,6 +50,13 @@ if(location.href.indexOf("donation") != -1){
   } catch(e){
   }
 }
+    
+if(location.href.indexOf("submitpost") != -1){
+  try{
+    loadList();
+  } catch(e){
+  }
+}
 
 });
 
@@ -64,26 +72,44 @@ function playMusic(pos){
       // New music if it's not already loaded.
       eval("song_"+pos+".tagName");
     } catch(e){
-      document.getElementsByClassName("speaker_icon")[pos].src = "img/pause-icon.png";
+      try{
+        document.getElementsByClassName("speaker_icon")[pos].src = "img/pause-icon.png";
+      } catch(e){
+        document.getElementsByClassName("speaker_icon")[0].src = "img/pause-icon.png";
+      }
+      
       eval("window.song_" + pos + " = new Audio()");
+
       eval("song_" + pos + ".src = '" + loadedDonations[pos].music + "'");
       eval("song_" + pos + ".src");
       eval("song_" + pos + ".volume = 0.2;");
     }
     musicPlaying = true;
     musicPos = pos;
-    document.getElementsByClassName("speaker_icon")[pos].src = "img/pause-icon.png";
+    try{
+        document.getElementsByClassName("speaker_icon")[pos].src = "img/pause-icon.png";
+      } catch(e){
+        document.getElementsByClassName("speaker_icon")[0].src = "img/pause-icon.png";
+      }
     eval("song_" + pos + ".play()");
   } else if(musicPlaying && musicPos != pos) {
     // Pressed new donation
     eval("song_" + musicPos + ".pause()");
-    document.getElementsByClassName("speaker_icon")[musicPos].src = "img/speaker-icon.png";
+    try{
+        document.getElementsByClassName("speaker_icon")[musicPos].src = "img/speaker-icon.png";
+      } catch(e){
+        document.getElementsByClassName("speaker_icon")[0].src = "img/speaker-icon.png";
+      }
     musicPlaying = false;
     playMusic(pos);
   } else {
     // Paused the same donation
     eval("song_" + musicPos + ".pause()");
-    document.getElementsByClassName("speaker_icon")[musicPos].src = "img/speaker-icon.png";
+    try{
+        document.getElementsByClassName("speaker_icon")[musicPos].src = "img/speaker-icon.png";
+      } catch(e){
+        document.getElementsByClassName("speaker_icon")[0].src = "img/speaker-icon.png";
+      }
     musicPlaying = false;
   }
     
@@ -281,7 +307,7 @@ if(location.href.indexOf("admin") != -1){
 
 
 function loadCustomDonation(){
-
+  
   var url = location.href;
   var donationOriginStart = url.indexOf("?");
   var donationOrigin = url.substr((donationOriginStart+1), url.length);
@@ -289,7 +315,11 @@ function loadCustomDonation(){
   try{
     var donation = null;
     for(var i = 0; i < loadedDonations.length; i++){
-      if(loadedDonations[i].origin == donationOrigin) donation = loadedDonations[i];
+      if(loadedDonations[i].origin == donationOrigin){
+        donation = loadedDonations[i];
+        break;
+      } 
+      
     }
   } catch(e){
   }
@@ -532,9 +562,35 @@ function heart(){
   
 }
 
+function loadList(){
+  for(var i = 0; i < loadedDonations.length; i++){
+    document.getElementById("load_existing_donation").innerHTML += "<option value='" + loadedDonations[i].origin + "'>" + loadedDonations[i].name + "</option>"
+  }
+}
+
+function loadFromOrigin(){
+  var origin = document.getElementById("load_existing_donation").value;
+  var donation;
+  for(var i = 0; i < loadedDonations.length; i++){
+    if(loadedDonations[i].origin === origin) donation = loadedDonations[i];
+  }
+  
+  document.getElementById("name").value = donation.name;
+  document.getElementById("message").value = donation.message;
+  document.getElementById("amount").value = donation.amount;
+  document.getElementById("image").value = donation.image;
+  document.getElementById("music").value = donation.music;
+  document.getElementById("origin").value = donation.origin;
+  
+  
+  
+  
+}
 
 
-/* Extra functions ( prob stolen from overstacked) */
+
+
+/* Extra functions (prob stolen from overstacked) */
 
 function copyToClipboard(text) {
     if (window.clipboardData && window.clipboardData.setData) {

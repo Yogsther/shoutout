@@ -68,7 +68,7 @@ body{
   text-align: center;
   position: relative;
   margin: 0 auto;
-  top: -6em;
+  top: -2em;
 }
 
 #links{
@@ -82,7 +82,7 @@ body{
   position: relative;
   margin: 0 auto;
   display: block;
-  top: -6em;
+  top: -2em;
 }
 
 a{

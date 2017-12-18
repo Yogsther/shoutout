@@ -351,11 +351,15 @@ var phonenumber = document.getElementById("phone_numb");
 var donationAmount = document.getElementById("donation_req");
 
 
+function tempRedir(){
+  location.href = "over.html"
+}
 
 if(location.href.indexOf("donate") != -1){
   try{
+    tempRedir();
     donationAmount.value = 20;
-    getOpeningHours();
+    //getOpeningHours();
     eventListener();
   } catch(e){
     
